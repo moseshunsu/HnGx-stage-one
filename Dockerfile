@@ -1,8 +1,8 @@
-#Start with a base image containing Java runtime
-FROM openjdk:17-jdk-slim as build
+FROM maven:3.8.5-openjdk-17 AS build
+COPY . .
+RUN mvn clean package -DskipTests
 
-# Add the application's jar to the container
-COPY target/hngx-stage-one-0.0.1-SNAPSHOT.jar hngx-stage-one-0.0.1-SNAPSHOT.jar
-
-#execute the application
-ENTRYPOINT ["java","-jar","/hngx-stage-one-0.0.1-SNAPSHOT.jar"]
+FROM openjdk:17.0.1-jdk-slim
+COPY --from=build /target/hngx-stage-one-0.0.1-SNAPSHOT.jar demo.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","demo.jar"]
