@@ -22,7 +22,7 @@ public class ResponseServiceImpl implements ResponseService {
                 .current_day(currentDay.name())
                 .utc_time(now.toString())
                 .track(track)
-                .github_file_url("https://github.com/moseshunsu/HnGx-stage-one/blob/main/src/main/java/net/hngx/HNGxstageone/HnGxStageOneApplication.java")
+                .github_file_url("https://github.com/moseshunsu/hngx-stage-one/blob/main/src/main/java/com/hngx/hngxstageone/HngxStageOneApplication.java")
                 .github_repo_url("https://github.com/moseshunsu/HnGx-stage-one")
                 .status_code(200)
                 .build();
