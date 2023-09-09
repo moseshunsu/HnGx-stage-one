@@ -19,8 +19,8 @@ public class ResponseServiceImpl implements ResponseService {
 
         return ResponseDto.builder()
                 .slack_name(slack_name)
-                .current_day(currentDay.name())
-                .utc_time(now.toString())
+                .current_day(currentDay.name().charAt(0) + currentDay.name().toLowerCase().substring(1))
+                .utc_time(now.toString().substring(0, 19) + "Z")
                 .track(track)
                 .github_file_url("https://github.com/moseshunsu/hngx-stage-one/blob/main/src/main/java/com/hngx/hngxstageone/HngxStageOneApplication.java")
                 .github_repo_url("https://github.com/moseshunsu/HnGx-stage-one")
